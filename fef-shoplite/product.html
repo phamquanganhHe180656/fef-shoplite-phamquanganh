@@ -14,7 +14,7 @@
 <body>
     <!-- Header / Navbar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" aria-label="Dieu huong chinh">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="index.html">
                     <i class="bi bi-bag-check"></i> ShopLite
@@ -45,12 +45,13 @@
     <!-- Main Content -->
     <main>
         <!-- Breadcrumb -->
-        <section class="py-3 bg-light">
+        <section class="py-3 bg-light border-bottom">
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
-                        <li class="breadcrumb-item active">Chi Tiết Sản Phẩm</li>
+                        <li class="breadcrumb-item" id="breadcrumb-category">Danh mục</li>
+                        <li class="breadcrumb-item active" id="breadcrumb-product" aria-current="page">Chi tiết sản phẩm</li>
                     </ol>
                 </nav>
             </div>
@@ -77,18 +78,20 @@
         <!-- Product Detail -->
         <section id="product-detail" class="d-none py-5">
             <div class="container">
-                <div class="row">
+                <div class="row g-5 align-items-start">
                     <!-- Product Image -->
-                    <div class="col-md-5 mb-4">
-                        <img id="product-image" src="" alt="Sản phẩm" class="img-fluid">
+                    <div class="col-md-5">
+                        <div class="card shadow-sm product-image-card border-0">
+                            <div class="card-body p-4">
+                                <img id="product-image" src="" alt="Sản phẩm" class="img-fluid">
+                            </div>
+                        </div>
                     </div>
                     <!-- Product Info -->
                     <div class="col-md-7">
-                        <h1 id="product-title" class="mb-2"></h1>
-                        <div class="mb-3">
-                            <span id="product-rating" class="text-warning">
-                                <i class="bi bi-star-fill"></i>
-                            </span>
+                        <h1 id="product-title" class="mb-3"></h1>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span id="product-rating" class="text-warning"></span>
                             <span id="product-category" class="badge bg-secondary"></span>
                         </div>
                         <h2 id="product-price" class="text-danger mb-3"></h2>
@@ -96,10 +99,15 @@
                         
                         <!-- Add to Cart -->
                         <div class="mb-4">
-                            <div class="input-group mb-3" style="width: 150px;">
-                                <button class="btn btn-outline-secondary" type="button" id="qty-minus">−</button>
-                                <input type="number" id="quantity" class="form-control text-center" value="1" min="1">
-                                <button class="btn btn-outline-secondary" type="button" id="qty-plus">+</button>
+                            <label class="form-label fw-semibold" for="quantity">Số lượng</label>
+                            <div class="input-group quantity-selector mb-3">
+                                <button class="btn btn-outline-secondary" type="button" id="qty-minus" aria-label="Giảm số lượng">
+                                    <i class="bi bi-dash-lg"></i>
+                                </button>
+                                <input type="number" id="quantity" class="form-control text-center fw-semibold" value="1" min="1">
+                                <button class="btn btn-outline-secondary" type="button" id="qty-plus" aria-label="Tăng số lượng">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
                             </div>
                             <button class="btn btn-primary btn-lg" id="add-to-cart-btn">
                                 <i class="bi bi-cart-plus"></i> Thêm vào Giỏ Hàng
@@ -111,6 +119,18 @@
                             Đã thêm vào giỏ hàng!
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section id="related-products-section" class="d-none pb-5">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h3 class="h4 mb-0">Sản phẩm tương tự</h3>
+                </div>
+                <div id="related-products-grid" class="row row-cols-1 row-cols-md-4 g-3">
+                    <!-- Related products rendered by JS -->
                 </div>
             </div>
         </section>
@@ -153,6 +173,6 @@
     <script src="js/api.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/detail.js"></script>
+    <script src="js/product.js"></script>
 </body>
 </html>
