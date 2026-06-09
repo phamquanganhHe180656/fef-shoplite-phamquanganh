@@ -3,11 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEF ShopLite - Giỏ Hàng</title>
+    <title>ShopLite - Giỏ Hàng</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Nội dung giỏ hàng sẽ được thêm vào đây -->
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <i class="bi bi-bag-check"></i> ShopLite
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Đăng Ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cart.html">
+                                <i class="bi bi-cart-fill"></i> Giỏ Hàng
+                                <span class="badge bg-danger" id="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <section class="py-3 bg-light">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+                        <li class="breadcrumb-item active">Giỏ Hàng</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Cart Content -->
+        <section class="py-5">
+            <div class="container">
+                <!-- Cart Items -->
+                <div id="cart-items" class="d-none">
+                    <div class="row">
+                        <!-- Cart Table (Desktop) -->
+                        <div class="col-lg-8 d-none d-lg-block">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Sản Phẩm</th>
+                                            <th>Giá</th>
+                                            <th>Số Lượng</th>
+                                            <th>Tổng</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cart-table-body">
+                                        <!-- Cart items will be rendered here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Cart List (Mobile) -->
+                        <div class="col-12 d-lg-none">
+                            <div id="cart-list-mobile">
+                                <!-- Cart items will be rendered here -->
+                            </div>
+                        </div>
+
+                        <!-- Cart Summary -->
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">Tổng Hóa Đơn</h5>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Tổng tiền hàng:</span>
+                                        <span id="subtotal">0 đ</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Phí vận chuyển:</span>
+                                        <span id="shipping">0 đ</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <strong>Tổng cộng:</strong>
+                                        <strong id="total-price">0 đ</strong>
+                                    </div>
+                                    <button class="btn btn-primary w-100 mb-2">Thanh Toán</button>
+                                    <a href="index.html" class="btn btn-outline-secondary w-100">Tiếp Tục Mua Sắm</a>
+                                    <button class="btn btn-danger w-100 mt-2" id="clear-cart-btn">Xóa Giỏ Hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty Cart -->
+                <div id="empty-cart" class="text-center py-5">
+                    <i class="bi bi-bag-x display-1 text-muted mb-3"></i>
+                    <h3 class="text-muted mb-3">Giỏ hàng trống</h3>
+                    <p class="text-muted mb-4">Hãy thêm một số sản phẩm vào giỏ hàng của bạn</p>
+                    <a href="index.html" class="btn btn-primary">Bắt Đầu Mua Sắm</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="bi bi-bag-check"></i> ShopLite</h5>
+                    <p class="text-muted">Mua sắm tiện lợi, giá cả hợp lý.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liên Kết</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="index.html" class="text-muted">Trang Chủ</a></li>
+                        <li><a href="cart.html" class="text-muted">Giỏ Hàng</a></li>
+                        <li><a href="register.html" class="text-muted">Đăng Ký</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liên Hệ</h5>
+                    <p class="text-muted">
+                        <i class="bi bi-envelope"></i> info@shoplite.com<br>
+                        <i class="bi bi-telephone"></i> +84 (0) 123 456 789
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center text-muted">
+                <small>&copy; 2024 ShopLite. Bản quyền được bảo vệ.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="js/api.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/cart.js"></script>
