@@ -11,9 +11,9 @@
  * @returns {string} Chuỗi định dạng tiền tệ
  */
 function formatCurrency(price) {
-    return new Intl.NumberFormat('vi-VN', {
+    return new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'VND'
+        currency: 'USD'
     }).format(Math.round(price));
 }
 

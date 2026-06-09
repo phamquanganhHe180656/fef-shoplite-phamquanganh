@@ -95,12 +95,24 @@ header {
 }
 
 .product-image {
-    height: 200px;
-    object-fit: cover;
-    background: white;
+    height: 220px;
+    background: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 16px;
+    overflow: hidden;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
 }
 
 .product-info {
@@ -134,11 +146,16 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
+    margin-top: 12px;
 }
 
+.product-actions a,
 .product-actions button {
     font-size: 0.9rem;
-    padding: 8px;
+    padding: 10px 8px;
+    height: auto;
+    white-space: nowrap;
+    text-align: center;
 }
 
 /* ========================================
