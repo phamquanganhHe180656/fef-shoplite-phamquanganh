@@ -3,11 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEF ShopLite - Trang Chủ</title>
+    <title>ShopLite - Trang Chủ</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Nội dung trang chủ sẽ được thêm vào đây -->
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <i class="bi bi-bag-check"></i> ShopLite
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Đăng Ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html">
+                                <i class="bi bi-cart-fill"></i> Giỏ Hàng
+                                <span class="badge bg-danger" id="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero bg-primary text-white py-5">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Chào mừng đến ShopLite</h1>
+                <p class="lead mb-0">Những sản phẩm chất lượng với giá tốt nhất</p>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="py-4">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <input type="text" id="search-input" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                    </div>
+                    <div class="col-md-6">
+                        <select id="category-filter" class="form-select">
+                            <option value="">Tất cả danh mục</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Sort Options -->
+                <div class="row mb-4">
+                    <div class="col-auto">
+                        <button class="btn btn-outline-secondary btn-sm" id="sort-asc">Giá: Thấp - Cao</button>
+                        <button class="btn btn-outline-secondary btn-sm" id="sort-desc">Giá: Cao - Thấp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading State -->
+        <section id="loading" class="d-none text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Đang tải...</span>
+            </div>
+            <p class="mt-2">Đang tải sản phẩm...</p>
+        </section>
+
+        <!-- Error State -->
+        <section id="error" class="d-none">
+            <div class="container">
+                <div class="alert alert-danger mt-4" role="alert">
+                    <h4 class="alert-heading">Lỗi!</h4>
+                    <p id="error-message">Không thể tải sản phẩm. Vui lòng thử lại sau.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="py-4">
+            <div class="container">
+                <div id="product-grid" class="row g-3">
+                    <!-- Products will be rendered here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Empty State -->
+        <section id="empty-state" class="d-none text-center py-5">
+            <p class="text-muted">Không tìm thấy sản phẩm nào.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="bi bi-bag-check"></i> ShopLite</h5>
+                    <p class="text-muted">Mua sắm tiện lợi, giá cả hợp lý.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liên Kết</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="index.html" class="text-muted">Trang Chủ</a></li>
+                        <li><a href="cart.html" class="text-muted">Giỏ Hàng</a></li>
+                        <li><a href="register.html" class="text-muted">Đăng Ký</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liên Hệ</h5>
+                    <p class="text-muted">
+                        <i class="bi bi-envelope"></i> info@shoplite.com<br>
+                        <i class="bi bi-telephone"></i> +84 (0) 393 243 708
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center text-muted">
+                <small>&copy; 2026 ShopLite. Bản quyền được bảo vệ.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
