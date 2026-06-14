@@ -1,22 +1,21 @@
 # ShopLite - Mini E-Commerce Project
 
-> **Module:** FEF (Nền tảng Front-End)  
+> **Module:** FEF (Front-End Foundation)  
 > **Duration:** 1 week  
-> **Status:** ⚙️ Development
+> **Status:** ✅ Completed / Production Ready
 
-A fully functional e-commerce website built entirely on the client-side using **vanilla JavaScript**, **HTML5**, **CSS3**, and **Bootstrap 5**.
-
+A fully functional e-commerce website built entirely on the client-side using **vanilla JavaScript**, **HTML5**, **CSS3**, and **Bootstrap 5**. This project serves as the final assignment for the FEF module, demonstrating proficiency in DOM manipulation, API integration, and responsive design.
 ---
 
 ## 🎯 Project Overview
 
 **ShopLite** is a multi-page shopping application that demonstrates foundational front-end development skills:
-- Semantic HTML structure
-- Responsive CSS layouts (Flexbox/Grid)
-- Vanilla JavaScript DOM manipulation
-- Fetch API for real-time data
-- LocalStorage for cart persistence
-- Form validation
+- Using meaningful tags for SEO and accessibility.
+- Hand-written CSS combined with Bootstrap 5 (Flexbox/Grid).
+- Professional DOM & Event handling without frameworks.
+- Asynchronous data retrieval with `async/await` and error handling.
+- ** Using `localStorage` for persistent shopping cart data.
+- Implementation of pagination, debouncing, and toast notifications.
 
 **Features:**
 - Browse products from Fake Store API
@@ -32,9 +31,9 @@ A fully functional e-commerce website built entirely on the client-side using **
 
 ```
 fef-shoplite/
-├── index.html              # Home page - Product listing
-├── product.html            # Detail page - Single product view
-├── cart.html               # Shopping cart
+├── index.html              # Home page - Product listing & Filters
+├── product.html            # Detail page - Product info & Related items
+├── cart.html               # Shopping cart - Management & Checkout
 ├── register.html           # User registration form
 ├── css/
 │   └── style.css           # Main stylesheet (responsive)
@@ -42,8 +41,8 @@ fef-shoplite/
 │   ├── api.js              # Shared Fetch API functions
 │   ├── utils.js            # Utility functions (format, notify)
 │   ├── cart.js             # Cart logic & localStorage
-│   ├── main.js             # Home page logic
-│   ├── detail.js           # Product detail logic
+│   ├── main.js             # Home page logic (Pagination, Combined Filters)
+│   ├── product.js          # Detail page logic & Related products flow
 │   └── auth.js             # Form validation
 ├── assets/                 # Images, icons (when downloaded)
 └── README.md
@@ -55,12 +54,12 @@ fef-shoplite/
 
 | Category | Technology |
 |----------|-----------|
-| **Markup** | HTML5 (Semantic tags) |
-| **Styling** | CSS3, Bootstrap 5, Responsive Design |
+| **Markup** | HTML5 (Semantic Structure) |
+| **Styling** | CSS3, Bootstrap 5, Bootstrap Icons |
 | **Scripting** | Vanilla JavaScript (ES6+) |
 | **API** | Fetch API with `async/await` |
-| **Storage** | LocalStorage |
-| **Data Source** | Fake Store API (`https://fakestoreapi.com/`) |
+| **Storage** | LocalStorage (Persistence) |
+| **Data Source** | [Fake Store API](https://fakestoreapi.com/) |
 
 ---
 
@@ -103,29 +102,30 @@ fef-shoplite/
 
 ---
 
-## ✅ Scoring Rubric (0-10)
+## ✅ Completed Features & Scoring Rubric
 
-### Pass Tier (0-6 points)
-- ✅ All 4 pages linked via navbar (1.0)
-- ✅ Semantic HTML structure (1.0)
-- ✅ Home page fetches & renders products (1.5)
-- ✅ Detail page displays correct product (1.0)
-- ✅ Registration form validation (1.0)
-- ✅ Basic mobile responsiveness (0.5)
+### Pass Tier (Foundation)
+- [x] **4 Linked Pages:** Seamless navigation via shared Navbar.
+- [x] **Semantic HTML:** Correct use of `header`, `nav`, `main`, `section`, `footer`.
+- [x] **Home Page:** Dynamic fetching and rendering of product list.
+- [x] **Detail Page:** Dynamic rendering based on URL Query String (`?id=x`).
+- [x] **Registration:** JS-based validation for all fields.
+- [x] **Responsiveness:** Fluid layout across mobile, tablet, and desktop.
 
-### Good Tier (+1-2 points)
-- ✅ Full cart functionality with localStorage (1.0)
-- ✅ Search & filter by category (0.5)
-- ✅ Loading/error states (0.3)
-- ✅ Clean Flexbox/Grid layout (0.2)
+### Good Tier (Intermediate)
+- [x] **Full Cart Logic:** Add, remove, update quantities, and total calculation.
+- [x] **Combined Search & Filter:** Real-time updates based on user input.
+- [x] **State Handling:** Professional Loading spinners and Error messages.
+- [x] **Clean Layout:** Polished CSS Grid/Flexbox implementation.
 
-### Excellent Tier (+1-2 points)
-- 🎯 Event delegation for dynamic items (0.5)
-- 🎯 Combined search + filter + sort (0.5)
-- 🎯 Cart count badge synced (0.3)
-- 🎯 Pagination/load more (0.3)
-- 🎯 Skeleton loaders, toast notifications (0.2)
-- 🎯 High-quality, modular code (0.2)
+### Excellent Tier (Advanced)
+- [x] **Event Delegation:** Optimized event listeners on parent containers for dynamic items.
+- [x] **Combined Advanced Logic:** Search + Category Filter + Price Sorting working simultaneously.
+- [x] **Cart Badge Sync:** Navbar badge updates instantly across all pages.
+- [x] **Pagination:** Client-side pagination (8-10 items per page) for better performance.
+- [x] **Enhanced UX:** Search debouncing and Toast notifications for "Add to Cart" actions.
+- [x] **Code Quality:** Modular JS, no `console.log`, and zero Console errors.
+
 
 ---
 
@@ -153,24 +153,20 @@ fef-shoplite/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/username/fef-shoplite-yourname.git
+   git clone https://github.com/phamquanganhHe180656/fef-shoplite-phamquanganh.git
    cd fef-shoplite
    ```
 
 2. **Start a local server:**
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-
-   # Or using Node.js (http-server)
-   npx http-server
-
-   # Or open index.html directly in browser
+   ```
+   Run the project:
+   Simply open index.html in your browser.
+   Recommended: Use the Live Server extension in VS Code for the best experience.
    ```
 
 3. **Open in browser:**
    ```
-   http://localhost:8000
+   http://localhost:5500
    ```
 
 ---
@@ -211,28 +207,6 @@ Coming soon! 🚀
 
 ---
 
-## 🎓 Academic Integrity
-
-- ✅ You may use AI/Google to learn and debug
-- ✅ You must understand and explain every line of code
-- ⚠️ Copying from peers = 0 for both parties
-- 📝 Be prepared for code defense (viva)
-
----
-
-## 📦 Submission Checklist
-
-- [ ] Source code pushed to GitHub
-- [ ] Demo deployed (GitHub Pages/Netlify)
-- [ ] README includes screenshots
-- [ ] Local run instructions included
-- [ ] Features marked (Pass/Good/Excellent)
-- [ ] All 4 pages functional
-- [ ] No console errors
-- [ ] Git history with clear commits
-
----
-
 ## 💡 Tips for Success
 
 1. **Start with Pass tier** - Get basic features working first
@@ -261,6 +235,6 @@ This project is part of the **FEF Course** for educational purposes.
 
 ---
 
-**Last Updated:** June 2024  
+**Last Updated:** June 2026  
 **Author:** Pham Quang Anh  
-**Contact:** info@shoplite.com
+**Contact:** anhpqhe180656@fpt.edu.vn
