@@ -97,21 +97,34 @@ function hideError(containerId = 'error') {
  * @param {number} duration - Thời gian hiển thị (ms)
  */
 function showSuccess(message, duration = 3000) {
-    // Tạo toast element
+    let toastContainer = document.getElementById('shoplite-toast-container');
+
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'shoplite-toast-container';
+        toastContainer.className = 'shoplite-toast-container';
+        document.body.appendChild(toastContainer);
+    }
+
     const toast = document.createElement('div');
-    toast.className = 'alert alert-success alert-dismissible fade show';
-    toast.setAttribute('role', 'alert');
+    toast.className = 'alert alert-success shadow-sm shoplite-toast fade-in-anim';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
     toast.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <i class="bi bi-check-circle-fill me-2"></i>
+        <span>${message}</span>
     `;
-    
-    // Thêm vào body
-    document.body.appendChild(toast);
-    
-    // Auto dismiss
+
+    toastContainer.appendChild(toast);
+
     setTimeout(() => {
-        toast.remove();
+        toast.classList.add('fade-out-anim');
+        setTimeout(() => {
+            toast.remove();
+            if (toastContainer && toastContainer.children.length === 0) {
+                toastContainer.remove();
+            }
+        }, 250);
     }, duration);
 }
 

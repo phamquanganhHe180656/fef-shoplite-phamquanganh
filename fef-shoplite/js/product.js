@@ -2,23 +2,6 @@
 
 let currentProduct = null;
 
-function getCart() {
-    return JSON.parse(localStorage.getItem('cart')) || [];
-}
-
-function setCart(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-function updateCartBadge() {
-    const cart = getCart();
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const badge = document.getElementById('cart-count');
-
-    if (badge) {
-        badge.textContent = totalItems;
-    }
-}
 
 function getProductIdFromQuery() {
     const rawId = getQueryParam('id');
@@ -114,6 +97,11 @@ function renderProduct(product) {
 }
 
 function showAddSuccess(quantity) {
+    if (typeof showSuccess === 'function') {
+        showSuccess(`Da them ${quantity} san pham vao gio hang.`);
+        return;
+    }
+
     const successNode = document.getElementById('success-message');
     if (!successNode) return;
 
@@ -127,26 +115,7 @@ function showAddSuccess(quantity) {
     }, 1800);
 }
 
-function addToCart(product, quantity) {
-    const cart = getCart();
-    const existing = cart.find((item) => item.id === product.id);
 
-    if (existing) {
-        existing.quantity += quantity;
-    } else {
-        cart.push({
-            id: product.id,
-            title: product.title,
-            price: product.price,
-            image: product.image,
-            quantity
-        });
-    }
-
-    setCart(cart);
-    updateCartBadge();
-    showAddSuccess(quantity);
-}
 
 function renderRelatedProducts(products, currentId) {
     const grid = document.getElementById('related-products-grid');
