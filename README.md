@@ -185,8 +185,7 @@ fef-shoplite/
 ---
 
 ## 🌐 Live Demo
-
-Coming soon! 🚀  
+https://phamquanganhhe180656.github.io/fef-shoplite-phamquanganh/
 *(Deploy with GitHub Pages, Netlify, or Vercel)*
 
 ---
